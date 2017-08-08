@@ -1,0 +1,54 @@
+Controller Node, Network Node, Compute Node, Storage
+
+Base RD0 Packstack
+	-config. Management - Puppet
+
+Libvert + KVM + vertmanager, vittualbox, boxes, etc
+
+4 node (virtual machines)
+	- CentOS-7 with minimal install
+	- Same username with sudo privillege
+
+Controller Node (Runs the api services of the various openstack componant)
+	Two Network Interfaces (Static IP)
+		eth0 - 10.1.1.20
+	2-4 CPU,
+	4G of Mem
+	20GB Disk
+
+Compute Node (Run compute Service)
+	Contains Hyperviso (qemu-kvm), L2 Agnet
+	Two Network Interfaces (Static IP)
+		eth0 - 10.1.1.22
+	4 CPU,
+	4G of Mem
+	50GB Disk
+
+Network Node (Runs networking Services)
+	Contain L3-Agent, metadata Service
+	Two Network Interfaces (Static IP)
+		eth0 - 10.1.1.24
+		eth1 - 10.1.1.25 - management IP for ssh
+	2-4 CPU,
+	2G of Mem
+	20GB Disk
+
+Storage Node (Runs of storage services)
+	Network Interfaces (Static IP)
+		eth0 - 10.1.1.26
+	2-4 CPU,
+	2G of Mem
+	40GB Disk
+
+Configure DNS
+	/etc/host
+		10.1.1.20 controller-node.cdnisp.com
+		10.1.1.22 compute-node01.cdnisp.com
+		10.1.1.24 network-node01.cdnisp.com
+		10.1.1.26 storage-node01.cdnisp.com
+
+Other Admin task
+	- networking setup
+	- upload image
+	- access and security
+	- Create instancce
