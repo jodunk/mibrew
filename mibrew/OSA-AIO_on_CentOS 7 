@@ -1,0 +1,49 @@
+
+## อ่านก่อนทำ:   การติดตั้ง OSA AIO บน CentOS 7 ยังอยู่ในช่วงทดลอง หากติดปัญหาอะไร   ท่านสามารถติดตามหรือรายงานปัญหาไปได้ที่  
+https://bugs.launchpad.net/openstack-ansible ####
+
+Debit: https://docs.openstack.org/developer/openstack-ansible/developer-docs/quickstart-aio.html
+
+ลง CentOS 7 ให้เรียบร้อย
+
+######Prepare#####
+
+ แนะนำให้ Login เป็น root
+
+# yum -y update
+# yum -y install centos-release-openstack-newton git
+# reboot
+
+
+# systemctl stop NetworkManager
+# systemctl disable NetworkManager
+# systemctl start network
+# systemctl enable network
+# systemctl stop firewalld
+# systemctl disable firewalld
+
+# git clone https://git.openstack.org/openstack/openstack-ansible  /opt/openstack-ansible
+# cd /opt/openstack-ansible
+# git checkout d8d8540369ea9c09116b85bbd3bdd49db8cc371f
+# export ANSIBLE_ROLE_FETCH_MODE=git-clone
+# scripts/bootstrap-aio.sh
+
+หมายเหตุ: หากมีสีแดงจากการ run คำสั่ง scripts/bootstrap-aio.sh ไม่ต้องตกใจ run คำสั่งข้างล่างต่อได้เลย
+
+
+# cd /opt/openstack-ansible/playbooks
+# openstack-ansible setup-hosts.yml
+# openstack-ansible setup-infrastructure.yml
+# openstack-ansible os-keystone-install.yml
+# openstack-ansible os-barbican-install.yml
+# openstack-ansible os-glance-install.yml
+# openstack-ansible os-cinder-install.yml
+# openstack-ansible os-nova-install.yml
+# openstack-ansible os-neutron-install.yml
+# openstack-ansible os-horizon-install.yml
+
+
+################################### จากคำสั่งทั้งหมดผมได้ทำการทดสอบมา 1 รอบแล้ว  ###################################
+
+
+
