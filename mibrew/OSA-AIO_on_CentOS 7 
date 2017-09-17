@@ -12,8 +12,7 @@ Debit: https://docs.openstack.org/developer/openstack-ansible/developer-docs/qui
 
 # yum -y update
 # yum -y install centos-release-openstack-newton git
-# reboot
-
+# reboo
 
 # systemctl stop NetworkManager
 # systemctl disable NetworkManager
@@ -30,7 +29,6 @@ Debit: https://docs.openstack.org/developer/openstack-ansible/developer-docs/qui
 
 หมายเหตุ: หากมีสีแดงจากการ run คำสั่ง scripts/bootstrap-aio.sh ไม่ต้องตกใจ run คำสั่งข้างล่างต่อได้เลย
 
-
 # cd /opt/openstack-ansible/playbooks
 # openstack-ansible setup-hosts.yml
 # openstack-ansible setup-infrastructure.yml
@@ -41,7 +39,6 @@ Debit: https://docs.openstack.org/developer/openstack-ansible/developer-docs/qui
 # openstack-ansible os-nova-install.yml
 # openstack-ansible os-neutron-install.yml
 # openstack-ansible os-horizon-install.yml
-
 
 ################################### จากคำสั่งทั้งหมดผมได้ทำการทดสอบมา 1 รอบแล้ว  ###################################
 
